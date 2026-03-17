@@ -1,14 +1,17 @@
-Why each dependency?
-tokio: Rust's most popular async runtime. sqlx is fully async, so we need it.
-sqlx: The best choice for Rust + MySQL in 2026. It gives type-safe queries, connection pooling, and compile-time checks (when you use the macros feature). We use the bind version here for maximum beginner-friendliness.
-serde + serde_json: Standard way to turn JSON into Rust structs.
-anyhow: Turns every error into a single Result type so we can use ? everywhere.
-dotenvy: Loads secrets from .env (never hard-code passwords).
-chrono: Handles timestamps that MySQL understands perfectly.
-
 # rust_data_pipeline_1
 
 A simple, production-ready ETL data pipeline written in Rust using MySQL.
+
+## Why each dependency?
+1. tokio: Rust's most popular async runtime. 
+2. sqlx is fully async, so we need it.
+sqlx: The best choice for Rust + MySQL in 2026. It gives type-safe queries, connection pooling, and compile-time checks (when you use the macros feature). We use the bind version here for maximum beginner-friendliness.
+3. serde + serde_json: Standard way to turn JSON into Rust structs.
+4. anyhow: Turns every error into a single Result type so we can use ? everywhere.
+5. dotenvy: Loads secrets from .env (never hard-code passwords).
+6. chrono: Handles timestamps that MySQL understands perfectly.
+
+
 
 ## What it does
 - **Extract** user data from `data/input.json`
@@ -25,8 +28,6 @@ A simple, production-ready ETL data pipeline written in Rust using MySQL.
 2. Copy the `Cargo.toml`, `.env`, `data/input.json`, and `src/main.rs` from this guide.
 3. Update `DATABASE_URL` in `.env`
 4. `cargo run`
-
-## Project Structure
 
 
 ## How to Extend
