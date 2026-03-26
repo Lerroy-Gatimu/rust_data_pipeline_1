@@ -2,14 +2,14 @@
 
 A simple, production-ready ETL data pipeline written in Rust using MySQL.
 
-## Why each dependency?
-1. tokio: Rust's most popular async runtime. 
-2. sqlx is fully async, so we need it.
-sqlx: The best choice for Rust + MySQL in 2026. It gives type-safe queries, connection pooling, and compile-time checks (when you use the macros feature). We use the bind version here for maximum beginner-friendliness.
-3. serde + serde_json: Standard way to turn JSON into Rust structs.
+## Dependencies
+1. tokio: async runtime. 
+2. sqlx is fully async
+   It gives type-safe queries, connection pooling, and compile-time checks 
+3. serde + serde_json: to turn JSON into Rust structs.
 4. anyhow: Turns every error into a single Result type so we can use ? everywhere.
-5. dotenvy: Loads secrets from .env (never hard-code passwords).
-6. chrono: Handles timestamps that MySQL understands perfectly.
+5. dotenvy: Loads secrets from .env 
+6. chrono: Handles timestamps 
 
 
 
@@ -18,14 +18,10 @@ sqlx: The best choice for Rust + MySQL in 2026. It gives type-safe queries, conn
 - **Transform** names to uppercase + add timestamp
 - **Load** into MySQL table `processed_users` (idempotent)
 
-## Prerequisites
-- Rust 1.80+
-- MySQL 8.x running
-- Database `rust_data_pipeline_1` created
 
 ## Quick Start
 1. `cargo new rust_data_pipeline_1 --bin && cd rust_data_pipeline_1`
-2. Copy the `Cargo.toml`, `.env`, `data/input.json`, and `src/main.rs` from this guide.
+2. Copy the `Cargo.toml`, `.env`, `data/input.json`, and `src/main.rs` from this repo.
 3. Update `DATABASE_URL` in `.env`
 4. `cargo run`
 
